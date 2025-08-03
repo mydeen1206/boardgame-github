@@ -117,4 +117,4 @@ jobs:
             docker pull mydeendevops369/boardgame:latest
             docker stop boardgame || true
             docker rm boardgame || true
-            docker run -d --name boardgame -p 80:8080 mydeendevops369/boardgame:latest
+            docker run -d --name boardgame -p 8081:8080 mydeendevops369/boardgame:latest
