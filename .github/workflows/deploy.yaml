@@ -117,7 +117,7 @@ jobs:
             docker pull mydeendevops369/boardgame:latest
             docker stop boardgame || true
             docker rm boardgame || true
-            docker run -d --name boardgame -p 8081:8080 mydeendevops369/boardgame:latest
+            docker run -d --name boardgame -p 8080:8080 mydeendevops369/boardgame:latest
 
   gdeploy:
     name: Deploy to GKE
@@ -155,4 +155,6 @@ jobs:
       - name: Deploy to GKE
         run: |
           kubectl apply -f deployment.yaml
-          kubectl apply -f ./k8s/loadbalancer
+          kubectl apply -f hpa.yaml
+          kubectl apply -f vpa.yaml
+          kubectl get pods
